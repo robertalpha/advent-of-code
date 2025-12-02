@@ -11,6 +11,7 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 
     testImplementation(libs.junit.jupiter.engine)
+    testImplementation(libs.kotest.assertions.core)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
