@@ -12,7 +12,7 @@ class Day01 {
 
 
     companion object {
-         var result : Aggregate
+        private var result : Aggregate
 
         init {
             val input = this::class.java.getResourceAsStream("./input.txt")?.bufferedReader()?.readLines()!!
