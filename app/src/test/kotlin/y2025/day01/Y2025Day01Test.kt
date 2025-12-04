@@ -3,7 +3,7 @@ package y2025.day01
 import io.kotest.matchers.shouldBe
 import kotlin.test.Test
 
-class y2025_Day01Test {
+class Y2025Day01Test {
 
     val exampleInput =
         """
@@ -21,7 +21,7 @@ class y2025_Day01Test {
 
 
     @Test
-    fun exampleTest() {
+    fun day1Test() {
         Day01.solution(exampleInput).zeroCounts shouldBe 3
         Day01.solution(exampleInput).zeroSkipped shouldBe 3
     }

@@ -18,12 +18,6 @@ class Day02 {
         fun grouped(input: List<String>) = input.joinToString(",").split(',').filter { it.isNotBlank() }
             .map { it.split('-').let { Group(it.first().toLong(), it.last().toLong()) } }
 
-        fun solution(input: List<String>): List<Long> {
-            val groups = input.joinToString(",").split(',').filter { it.isNotBlank() }
-                .map { it.split('-').let { Group(it.first().toLong(), it.last().toLong()) } }
-            return groups.map { it.invalidsHalf() }.flatten()
-        }
-
         data class Group(val start: Long, val end: Long)
 
         fun Group.invalidsHalf() =
