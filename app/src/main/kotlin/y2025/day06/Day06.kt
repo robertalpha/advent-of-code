@@ -61,6 +61,6 @@ class Day06 {
 
         fun part1() = input.filter { it.isNotBlank() }.readHomeWork().sumOfLines()
 
-        fun part2() = input.filter { it.trim().isNotBlank() }.rightToLeft()
+        fun part2() = input.filter { it.isNotBlank() }.rightToLeft()
     }
 }

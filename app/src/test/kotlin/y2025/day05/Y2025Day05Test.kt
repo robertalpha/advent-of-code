@@ -25,7 +25,7 @@ class Y2025Day05Test {
 """
 
     @Test
-    fun day3Test() {
+    fun day5Test() {
         val exampleInventory = exampleInput.lines().readInventory()
 
         exampleInventory.countFreshItems() shouldBe 3

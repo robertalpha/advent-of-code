@@ -6,6 +6,7 @@ import y2025.day03.Day03
 import y2025.day04.Day04
 import y2025.day05.Day05
 import y2025.day06.Day06
+import y2025.day07.Day07
 
 fun main() {
     // dial points to 0
@@ -31,4 +32,8 @@ fun main() {
     // Day 6: Trash Compactor
     println("Solution 6p1: ${Day06.part1()}")
     println("Solution 6p2: ${Day06.part2()}")
+
+    // Day 7: 
+    println("Solution 7p1: ${Day07.part1()}")
+    println("Solution 7p2: ${Day07.part2()}")
 }

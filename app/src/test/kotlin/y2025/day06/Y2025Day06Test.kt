@@ -17,7 +17,7 @@ class Y2025Day06Test {
 """
 
     @Test
-    fun day3Test() {
+    fun day6Test() {
         // example p1
         exampleInput.lines().filter { it.isNotBlank() }.readHomeWork().sumOfLines() shouldBe 4277556
 

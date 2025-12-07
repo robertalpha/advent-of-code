@@ -23,8 +23,8 @@ class Y2025Day04Test {
 """
 
     @Test
-    fun day3Test() {
-        val example = exampleInput.lines().map { it.trim() }.filter { it.isNotBlank() }
+    fun day4Test() {
+        val example = exampleInput.lines().filter { it.isNotBlank() }
 
         // example part 1
         example.toMatrix().countProcessable() shouldBe 13
@@ -32,6 +32,4 @@ class Y2025Day04Test {
         // example part 2
         example.toMatrix().countUntillNotProcessable() shouldBe 43
     }
-
-
 }
