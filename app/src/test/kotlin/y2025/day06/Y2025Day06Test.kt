@@ -3,8 +3,8 @@ package y2025.day06
 import io.kotest.matchers.shouldBe
 import kotlin.test.Test
 import y2025.day06.Day06.Companion.readHomeWork
+import y2025.day06.Day06.Companion.rightToLeft
 import y2025.day06.Day06.Companion.sumOfLines
-import y2025.day06.Day06.Companion.sumOfVerticalColumns
 
 class Y2025Day06Test {
 
@@ -18,11 +18,10 @@ class Y2025Day06Test {
 
     @Test
     fun day3Test() {
-        val exampleInventory = exampleInput.lines().readHomeWork()
+        // example p1
+        exampleInput.lines().filter { it.isNotBlank() }.readHomeWork().sumOfLines() shouldBe 4277556
 
-        exampleInventory.sumOfLines() shouldBe 4277556
-
-        exampleInventory.sumOfVerticalColumns() shouldBe 3263827
-
+        // example p2
+        exampleInput.lines().filter { it.isNotBlank() }.rightToLeft() shouldBe 3263827
     }
 }
