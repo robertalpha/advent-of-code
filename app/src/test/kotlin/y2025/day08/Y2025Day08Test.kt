@@ -1,6 +1,8 @@
 package y2025.day08
 
 import io.kotest.matchers.shouldBe
+import jdk.internal.org.jline.keymap.KeyMap.key
+import kotlin.collections.toMutableMap
 import kotlin.math.pow
 import kotlin.math.sqrt
 import kotlin.test.Test
@@ -47,25 +49,28 @@ class Y2025Day08Test {
                 ) }}
 
         // example p1
-        input.connect(10).take(3) shouldBe 21
+        input.connect(10) shouldBe 21
 
         // example p2
         input.size shouldBe 40
     }
 }
 
-private fun List<Y2025Day08Test.Point3D>.connect(i: Int): List<List<Y2025Day08Test.Point3D>> {
-    val output = this.map { mutableListOf(it) }.toMutableList()
+private fun List<Y2025Day08Test.Point3D>.connect(i: Int): MutableMap<Y2025Day08Test.Point3D, Int> {
+    val output: MutableMap<Y2025Day08Test.Point3D, Int> = this.mapIndexed { ind, point -> Pair(point,ind) }
+        .associate { it.first to it.second }.toMutableMap()
+
     val distances = this.calculateDistances()
     val shortestDistances = distances.map{ Pair(it.key, it.value.filter { s-> it.key != s.key }.minBy { it.value }) }.associate { it.first to it.second }
 
     var counter = i
     do {
-        val nextMerge = output.filter { it.size == 1 }
-            .map { Pair(it.first(), shortestDistances[it.first()]) }
-            .minBy { it.second!!.value }
-        output.remove(listOf(nextMerge.first))
-        output.first { it.contains(nextMerge.second!!.key) }.add(nextMerge.first)
+
+//        output.minBy { p1 -> distances[p1].filter { p2 -> output[p2.key] != output[p1] }  }.
+        val unconnected = distances.map { p1 -> p1.key to p1.value.filter { p2 -> output[p1.key] != output[p2.key] } }
+        val shortest = unconnected.associate { it to it.second.minBy { it.value } }
+        val next =  shortest.minBy { it.value.value }.let { Pair(it.key.first, it.value.key) }
+        output[next.second] = output[next.first]!!
         counter --
     } while (counter >= 0)
 
